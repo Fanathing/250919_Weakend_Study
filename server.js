@@ -1,8 +1,9 @@
 const express = require("express");
 const app = express();
+const path = `${__dirname}/view/boards`
 
 app.get("/",(req,res) => {
-    console.log(req);
+    res.sendFile(`${path}/index.html`)
 })
 
 app.listen(4000,() => {
