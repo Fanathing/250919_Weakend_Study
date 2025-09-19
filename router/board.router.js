@@ -6,7 +6,7 @@ router.get("/", boardController.getList);
 router.get("/create", boardController.getCreate);
 router.post("/create", boardController.postCreate);
 router.get("/view/:key", boardController.getView)
-
+router.get("/modify/:key", boardController.getModify)
 
 module.exports = router;
 

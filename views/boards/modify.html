@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시글 수정 페이지</title>
+</head>
+<body>
+    <div id="header">
+    <h4>WeakEnd 게시판</h1>
+    </div>
+    <div id="inner">
+        <form action="/boards/modify" method="post">
+            <input type="text" value="{{ board.userId }}">
+            <input type="text" value="{{ board.title }}">
+            <input type="text" value="{{ board.content }}">
+            <button type="button" onclick="location.href = `/boards/view/{{ board.key }}`">뒤로가기</button>
+            <button type="submit">수정하기</button>
+        </form>
+    </div>
+    <div id="footer">
+        <p>여긴 푸터영역이랍니다.</p>
+    </div>
+</body>
+</html>

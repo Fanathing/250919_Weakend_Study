@@ -34,7 +34,6 @@ const postCreate = (req, res) => {
     })
 
     res.redirect("/boards");
-    console.log(boards);
     
 }
 
@@ -45,13 +44,23 @@ const getView = (req, res) => {
     res.render("boards/view.html", {
         board
     })
-    console.log(board);
     
+}
+
+const getModify = (req,res) => {
+    const { key } = req.params
+    
+    const board = boards.find((board) => board.key == key)
+    res.render("boards/modify.html", {
+        board
+    })
+    console.log(board);
 }
 
 module.exports = {
     getList,
     getCreate,
     postCreate,
-    getView
+    getView,
+    getModify
 }
