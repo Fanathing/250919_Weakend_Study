@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <div id="header">
+        <h4>WeakEnd 게시판</h1>
+    </div>
+    <div id="inner">
+        <form action="/boards/create" method="post">
+            <input type="text" name="userId" placeholder="아이디를 입력해주세요">
+            <input type="text" name="title" placeholder="제목을 입력해주세요">
+            <input type="text" name="content" placeholder="내용을 입력해주세요">
+            <button type="button" onclick="location.href = `/boards`">뒤로가기</button>
+            <button type="submit">작성완료</button>
+        </form>
+    </div>
+    <div id="footer">
+        <p>여긴 푸터영역이랍니다.</p>
+    </div>
+</body>
+</html>
