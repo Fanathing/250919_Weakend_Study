@@ -10,12 +10,14 @@
     <h4>WeakEnd 게시판</h1>
     </div>
     <div id="inner">
-        <form action="/boards/modify" method="post">
-            <input type="text" value="{{ board.userId }}">
-            <input type="text" value="{{ board.title }}">
-            <input type="text" value="{{ board.content }}">
-            <button type="button" onclick="location.href = `/boards/view/{{ board.key }}`">뒤로가기</button>
-            <button type="submit">수정하기</button>
+        <form action="/boards/modify/{{ board.key }}" method="post">
+            <input type="text" name="userId" value="{{ board.userId }}">
+            <input type="text" name="title" value="{{ board.title }}">
+            <input type="text" name="content" value="{{ board.content }}">
+            <div class="inner-button">
+                <button type="button" onclick="location.href = `/boards/view/{{ board.key }}`">뒤로가기</button>
+                <button type="submit">수정하기</button>
+            </div>
         </form>
     </div>
     <div id="footer">
