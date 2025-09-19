@@ -13,11 +13,15 @@
         <h2>게시판 리스트</h2>
         <div>
             <ul>
+                {% if 0 >= boards.length %}
+                    <h1>게시글이 없습니다람쥐</h1>
+                {% endif %}
+
                 {% for board in boards %}
                     <li>
                         <a>{{ board.id }}</a>
                         <a>{{ board.user_id }}</a>
-                        <a>{{ board.title }}</a>
+                        <a href="/boards/view/{{ board.key }}">{{ board.title }}</a>
                         <a>{{ board.created_at }}</a>
                     </li>
                 {% endfor %}

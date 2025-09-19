@@ -2,16 +2,19 @@ const boards = require("../db/boards.data.js");
 const path = require("path");
 
 
+// get 요청으로 게시글 목록을 응답하는 역할
 const getList = (req, res) => {
     res.render("boards/list.html", {
         boards
     })
 }
 
+// get 요청으로 게시글 생성 페이지를 응답하는 역할
 const getCreate = (req, res) => {
     res.sendFile(path.join(__dirname,`../views/boards/create.html`))
 }
 
+// post 요청으로 게시글을 생성하는 역할
 const postCreate = (req, res) => {
     const { userId, title, content } = req.body;
     // 생성일을 선언
@@ -35,8 +38,20 @@ const postCreate = (req, res) => {
     
 }
 
+const getView = (req, res) => {
+    const { key } = req.params
+    
+    const board = boards.find((board) => board.key == key)
+    res.render("boards/view.html", {
+        board
+    })
+    console.log(board);
+    
+}
+
 module.exports = {
     getList,
     getCreate,
-    postCreate
+    postCreate,
+    getView
 }

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="header">
+    <h4>WeakEnd 게시판</h1>
+    </div>
+
+    <div id="inner">
+        <div class="inner-view">
+            <ul>
+                <li>
+                    <p>{{ board.userId }}</p>
+                    <p>{{ board.title }}</p>
+                    <p>{{ board.content }}</p>
+                    <p>{{ board.created_at}}</p>
+                    <p>{{ board.updated_at}}</p>
+                </li>
+            </ul>
+        </div>
+        <div class="inner-button">
+            <button onclick="location.href = `/boards`">뒤로가기</button>
+            <button onclick="location.href = `/boards/modify/{{ board.key }}`">수정하기</button>
+        </div>
+    </div>
+
+    <div id="footer">
+        <p>여긴 푸터영역이랍니다.</p>
+    </div>
+</body>
+</html>
