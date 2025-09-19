@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const path = `${__dirname}/view/boards`
+const path = `${__dirname}/views/boards`
 
 app.get("/",(req,res) => {
     res.sendFile(`${path}/index.html`)
