@@ -4,7 +4,6 @@ const path = require("path");
 // 생성일을 선언
 const now = new Date();
 const date = `${now.getFullYear()}/${now.getMonth()+1}/${now.getDate()}`
-// 유니크 키를 선언
 
 
 // get 요청으로 게시글 목록을 응답하는 역할
@@ -23,7 +22,7 @@ const getCreate = (req, res) => {
 const postCreate = (req, res) => {
     const { userId, title, content } = req.body;
 
-    const key =  Date.now();
+    const key =  String(Date.now());
 
     boards.push({
         id: boards.length +1,
@@ -39,31 +38,34 @@ const postCreate = (req, res) => {
     
 }
 
+// 상세 페이지와 연결해주는 역할
 const getView = (req, res) => {
     const { key } = req.params
     
-    const board = boards.find((board) => board.key == key)
+    const board = boards.find((board) => board.key === key)
     res.render("boards/view.html", {
         board
     })
     
 }
 
+// 수정페이지로 연결해주는 역할
 const getModify = (req, res) => {
     const { key } = req.params
     
-    const board = boards.find((board) => board.key == key)
+    const board = boards.find((board) => board.key === key)
     res.render("boards/modify.html", {
         board
     })
 }
 
+// key값과 비교하여 특정한 게시글의 내용을 업데이트 하는 역할
 const postModify = (req, res) => {
     const { key } = req.params
     const { userId, title, content } = req.body
     boards.forEach((board) => {
 
-        if (board.key == key) {
+        if (board.key === key) {
             board.userId = userId
             board.title = title
             board.content = content
@@ -72,18 +74,12 @@ const postModify = (req, res) => {
     })
     res.redirect("/boards");
 }
-    // for(let i = 0; i < replyData.length; i++) {
-    //    if(replyData[i].replyId === replyId) {
-    //         replyData.splice(replyIndex, 1);
-    //         break;
-    //    }
 
-    // }
-
+//key 값을 비교해서 boards 안에서 특정한 배열을 삭제하는 역할
 const getDelete = (req, res) => {
     const { key } = req.params
     for (let i = 0; i < boards.length; i++) {
-        if (boards[i].key == key) {
+        if (boards[i].key === key) {
         boards.splice(i, 1);
         break;
         }

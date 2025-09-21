@@ -7,9 +7,10 @@
 </head>
 <body>
     <div id="header">
-    <h4>WeakEnd 게시판</h1>
+    <h4>WeekEnd 게시판</h1>
     </div>
     <div id="inner">
+        <h2>게시글을 수정해주세요</h2>
         <form action="/boards/modify/{{ board.key }}" method="post">
             <input type="text" name="userId" value="{{ board.userId }}">
             <input type="text" name="title" value="{{ board.title }}">
